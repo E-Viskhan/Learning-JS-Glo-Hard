@@ -1,19 +1,31 @@
-// Определяем переменную
-let num = 266219;
-// Переводим Number в итерируемый тип для перебора
-num = String(num);
-// Создаем переменную для накапливания результата
-let multNum = 1;
-for (let i = 0; i < num.length; i++) {
-  multNum *= Number(num[i]);
+let lang = prompt('Введите "ru" или "en":', 'ru').toLowerCase();
+let daysRu = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресеньe'];
+let daysEn = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+let days = {
+  'ru': daysRu,
+  'en': daysEn
+};
+
+// Решение через if
+if (lang === 'ru') {
+  console.log(daysRu);
+} else if (lang === 'en') {
+  console.log(daysEn);
+} else {
+  console.log('Такого языка, к сожалению, нет в базе.');
 }
-// Выводим результат перемножения цифр числа
-console.log(`Произведение цифр числа ${num} = ${multNum}`);
 
-// Возведение числа в 3 степень с помощью оператора **
-let multNumDeg = multNum ** 3;
-console.log(`Степень 3 числа ${multNum} = ${multNumDeg}`);
+// Решение через switch-case
+switch (lang) {
+  case 'ru':
+    console.log(daysRu);
+    break;
+  case 'en':
+    console.log(daysEn);
+    break;
+  default:
+    console.log('Такого языка, к сожалению, нет в базе.');
+}
 
-// Вывод первых двух символов multNumDeg
-multNumDeg = String(multNumDeg);
-console.log("Первые два символа:", multNumDeg.substr(0, 2));
+// Решение через многомерный массив(надеюсь можно объект использовать)
+console.log(days[lang]);
